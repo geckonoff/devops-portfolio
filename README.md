@@ -2,7 +2,7 @@
 ### by Aleksei Shibanov — Freelance DevOps Engineer  
 
 > 🔍 Focus: Secure email systems, PKI, infrastructure automation, and LLM-augmented operations.  
-> 📧 Contact: [alex.shi@cplugin.com](mailto:alex.shi@cplugin.com) | 🌐 [GitHub](https://github.com/your-username)  
+> 📧 Contact: [ag.shibanov@gmail.com](mailto:ag.shibanov@gmail.com) | 🌐 [GitHub](https://github.com/geckonoff)  
 
 ---
 
