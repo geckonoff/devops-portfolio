@@ -1,29 +1,53 @@
 # 🛠️ DevOps Infrastructure Portfolio  
-### by Aleksei Shibanov — Freelance DevOps Engineer  
+### by Aleksei Shibanov — IaC & Automation Engineer (Germany 🇩🇪)
 
-> 🔍 Focus: Secure email systems, PKI, infrastructure automation, and LLM-augmented operations.  
-> 📧 Contact: [ag.shibanov@gmail.com](mailto:ag.shibanov@gmail.com) | 🌐 [GitHub](https://github.com/geckonoff)  
+> 🔧 **Specialization**:  
+> **Infrastructure as Code that *works* in production** •  
+> **Bash/Python automation that *saves hours* on ops** •  
+> **Secure, observable, low-friction deployments**
 
----
-
-## 🧰 Core Competencies  
-- ✉️ **Mail Infrastructure**: Postfix + Dovecot + OpenLDAP (virtual users, Maildir, UID/GID 911:911)  
-- 🔐 **PKI & Security**: Custom CA, Traefik mTLS, FIDO2 (YubiKey), Rspamd (DKIM/DMARC, spam tuning)  
-- 🌍 **IaC**: Terraform (Hetzner Cloud), Ansible (idempotent roles for Rocky/Debian)  
-- 🐧 **Linux**: Rocky Linux 9/10, Debian 13, SELinux (permissive), firewalld  
-- 🤖 **AI/LLM Ops**: Prompt engineering for log analysis, config generation, diagnostics  
+📧 Let’s automate: [ag.shibanov@gmail.com](mailto:ag.shibanov@gmail.com)
 
 ---
 
-## 📂 Repository Structure  
-```
-.
-├── docs/                  # Architecture diagrams, troubleshooting guides
-├── terraform/             # IaC modules (e.g., hcloud-mailserver)
-├── ansible/               # Production-ready roles & playbooks
-└── tools/                 # CLI helpers (LDAP bind test, Yggdrasil status, etc.)
-```
+## 💡 Why My IaC Is Different
 
-> 💡 All configs are **parameterized** — no hardcoded secrets. Ready for adaptation.
+Most IaC repos show *ideal* flows. Mine shows **how to survive reality**:
+
+| Problem | My Automation Fix |
+|--------|-------------------|
+| ❌ “Postfix works locally, fails in prod” | ✅ `tools/postfix-diag.sh` — checks DNS, TLS, SASL, queue in one command |
+| ❌ “LDAP bind fails — is it network, cert, or ACL?” | ✅ `tools/ldap-check-bind.py` — tests connectivity, TLS, DN, filter step-by-step |
+| ❌ “Yggdrasil node silent — up or down?” | ✅ `tools/yggdrasp-status.sh` — parses `yggdrasilctl` output, alerts on peer loss |
+| ❌ “Spam score changed — what rule triggered?” | ✅ `tools/rspamd-analyze.py` — maps score to symbols, suggests tuning |
+
+→ All wrapped in **idempotent Ansible roles** and **Terraform modules** — no manual fixes.
 
 ---
+
+## 📦 Core Automation Toolkit
+
+| Layer | Tools |
+|------|-------|
+| **Provisioning** | `terraform/hcloud-mailserver/` — full mail node in 8 min (Rocky 9, firewalld, SELinux baseline) |
+| **Configuration** | `ansible/roles/` — Postfix, Dovecot, LDAP, Rspamd, PKI — all with `--check` support |
+| **Glue & Diagnostics** | `tools/` — 15+ Bash/Python scripts for:  
+- `mail-test.sh`: end-to-end delivery test (submit → IMAP fetch)  
+- `pki-revoke-check.sh`: “Is this cert still valid in our CA?”  
+- `llm-log-summarize.py`: “Show me top 3 error patterns in /var/log/mail.log last hour” |
+| **LLM-Augmented Ops** | `llm-ops/` — prompts + RAG over runbooks: *“How do I fix ‘SASL authentication failed’ for virtual users?”* → gets answer from your own docs |
+
+---
+
+## 🚀 Sample Workflow: Fix “Yahoo → Spam” in <10 min
+
+```bash
+# 1. Diagnose
+./tools/rspamd-analyze.py < /var/log/rspamd/rspamd.log | grep -A3 YAHOO
+
+# 2. Simulate fix
+ansible-playbook fix-yahoo-spam.yml --check --diff
+
+# 3. Apply & verify
+ansible-playbook fix-yahoo-spam.yml
+./tools/mail-test.sh --to user@yahoo.com --subject "Test: not spam"
