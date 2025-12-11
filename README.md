@@ -5,13 +5,14 @@
 [![Docker](https://img.shields.io/badge/Docker-26.1%2B-2496ED?logo=docker&logoColor=white)](https://www.docker.com/)
 [![Kubernetes](https://img.shields.io/badge/Kubernetes-v1.29%2B-326CE5?logo=kubernetes&logoColor=white)](https://kubernetes.io/)
 
-> 🔧 **Specialization**:
-> **Build production-grade infrastructure using**:
-**Terraform, Ansible, Docker, and Kubernetes**
-**— automated, idempotent, and ready for audit.** • 
-> **Infrastructure as Code that *works* in production** •  
-> **Bash/Python automation that *saves hours* on ops** •  
-> **Secure, observable, low-friction deployments** • 
+> 🔧 **Specialization**:<br>
+> **Build production-grade infrastructure using**:<br>
+> **Terraform, Ansible, Docker, and Kubernetes**<br>
+> **— automated, idempotent, and ready for audit.** •<br> 
+> **Infrastructure as Code that *works* in production** •<br>
+> **Bash/Python automation that *saves hours* on ops** •<br>
+> **Secure, observable, low-friction deployments** •<br>
+
 
 📧 Let’s automate: [ag.shibanov@gmail.com](mailto:ag.shibanov@gmail.com)
 
