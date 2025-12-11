@@ -1,5 +1,9 @@
 # 🛠️ DevOps Infrastructure Portfolio  
-### by Aleksei Shibanov — IaC & Automation Engineer (Germany 🇩🇪)
+### by Aleksei Shibanov — IaC & Automation Engineer (Germany 🇩🇪) 
+[![Terraform](https://img.shields.io/badge/Terraform-v1.9%2B-623CE4?logo=terraform&logoColor=white)](https://developer.hashicorp.com/terraform)
+[![Ansible](https://img.shields.io/badge/Ansible-2.16%2B-EE0000?logo=ansible&logoColor=white)](https://www.ansible.com/)
+[![Docker](https://img.shields.io/badge/Docker-26.1%2B-2496ED?logo=docker&logoColor=white)](https://www.docker.com/)
+[![Kubernetes](https://img.shields.io/badge/Kubernetes-v1.29%2B-326CE5?logo=kubernetes&logoColor=white)](https://kubernetes.io/)
 
 > 🔧 **Specialization**:  
 > **Infrastructure as Code that *works* in production** •  
