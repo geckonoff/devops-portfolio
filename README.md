@@ -6,7 +6,9 @@
 [![Kubernetes](https://img.shields.io/badge/Kubernetes-v1.29%2B-326CE5?logo=kubernetes&logoColor=white)](https://kubernetes.io/)
 
 > 🔧 **Specialization**:
-> **Build production-grade infrastructure using Terraform, Ansible, Docker, and Kubernetes — automated, idempotent, and ready for audit.** • 
+> **Build production-grade infrastructure using**:
+**Terraform, Ansible, Docker, and Kubernetes**
+**— automated, idempotent, and ready for audit.** • 
 > **Infrastructure as Code that *works* in production** •  
 > **Bash/Python automation that *saves hours* on ops** •  
 > **Secure, observable, low-friction deployments** • 
