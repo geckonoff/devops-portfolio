@@ -1,48 +1,45 @@
-# 🛠️ DevOps Infrastructure Portfolio  
-### by Aleksei Shibanov — IaC & Automation Engineer (Germany 🇩🇪) 
+# 🛠️ Aleksei Shibanov  
+### *IaC Engineer | Germany 🇩🇪 | Builds that survive prod (and 2011 iMacs)*
+
 [![Terraform](https://img.shields.io/badge/Terraform-v1.9%2B-623CE4?logo=terraform&logoColor=white)](https://developer.hashicorp.com/terraform)
 [![Ansible](https://img.shields.io/badge/Ansible-2.16%2B-EE0000?logo=ansible&logoColor=white)](https://www.ansible.com/)
-[![Docker](https://img.shields.io/badge/Docker-26.1%2B-2496ED?logo=docker&logoColor=white)](https://www.docker.com/)
-[![Kubernetes](https://img.shields.io/badge/Kubernetes-v1.29%2B-326CE5?logo=kubernetes&logoColor=white)](https://kubernetes.io/)
+[![Packer](https://img.shields.io/badge/Packer-1.10%2B-6C47FF?logo=packer&logoColor=white)](https://www.packer.io/)
+[![QEMU](https://img.shields.io/badge/QEMU-8.0%2B-000000?logo=qemu&logoColor=white)](https://www.qemu.org/)
+[![macOS](https://img.shields.io/badge/macOS-Ventura%2B-000000?logo=apple&logoColor=white)]()
 
-> 🔧 **Specialization**:<br>
-> **Build production-grade infrastructure using**:<br>
-> **Terraform, Ansible, Docker, and Kubernetes**<br>
-> **— automated, idempotent, and ready for audit.** •<br> 
-> **Infrastructure as Code that *works* in production** •<br>
-> **Bash/Python automation that *saves hours* on ops** •<br>
-> **Secure, observable, low-friction deployments** •<br>
+> ✨ **I don’t just write IaC — I write *survivable* IaC.**  
+> Infrastructure that deploys the same on Day 1 and Day 365.  
+> Golden images built on a 2011 iMac, deployed to bare-metal AMD GPU servers.  
+> No magic. No drift. Just `git clone && make`.
 
-
-📧 Let’s automate: [ag.shibanov@gmail.com](mailto:ag.shibanov@gmail.com)
+📬 [ag.shibanov@gmail.com](mailto:ag.shibanov@gmail.com)  
+📍 Remote — EU timezones preferred
 
 ---
 
-## 🔧 Highlighted Projects
+## 🚀 Projects That Ship
 
-### [`devops-reference-architecture`](https://github.com/your-username/devops-reference-architecture)
-A modular, cloud-agnostic reference architecture for production-grade infrastructure:
-- **Declarative provisioning** with Terraform (Hetzner Cloud, local, others via providers)
-- **Idempotent provisioning** via Ansible roles (Rocky Linux, Debian)
-- Unified observability stack: Prometheus + Grafana + Loki/Fluentd
-- Secure access: SSH key-only, sudo without password (configurable), systemd hardening
-- Designed for auditability, reproducibility, and fast iteration
+### [`devops-reference-architecture`](https://github.com/your-username/devops-reference-architecture)  
+*“The IaC base layer you wish you had at your last job.”*
 
-### [`packer-macos-qemu`](https://github.com/your-username/packer-macos-qemu)
-Fully automated macOS image builder for x86_64 (and experimental Apple Silicon support):
-- Packer-driven macOS VM image generation using QEMU/KVM
-- Supports Ventura, Sonoma (with OpenCore, SIP handling, GPU passthrough notes)
-- Integrated with Ansible for post-build configuration
-- Enables local macOS CI/CD, testing, and ephemeral build environments on Linux hosts
+✅ Terraform-first, multi-cloud (Hetzner, local, AWS stubs)  
+✅ Ansible roles *tested with Molecule* — no `--check` surprises  
+✅ Observability: Prometheus + node_exporter via socket activation  
+✅ Zero hardcoded secrets — all configs are `*.tfvars` + `ansible-vault`  
+✅ Docs in `docs/ADR/` — because “why?” matters more than “how”
+
+→ *Use it to spin up a prod-like cluster in <10 min. Audit-ready.*
 
 ---
 
-## 🔐 Principles
+### [`packer-macos-qemu`](https://github.com/your-username/packer-macos-qemu)  
+*“Yes, you can build ROCm-ready Linux VMs… on a 2011 iMac.”*
 
-- **No hardcoded secrets** — all inputs via variables, env, or Vault
-- **Idempotency first** — infrastructure converges reliably
-- **Minimal surface** — only essential services enabled
-- **Documentation-as-code** — READMEs per module, architecture decisions recorded
+🔥 **macOS-first Packer** — uses native HVF (no VirtualBox/UTM hacks)  
+📦 **Parameterized builds**:  
+```bash
+make all ROCMVER=6.2.4 UBNAME=jammy
+# → packer-ubuntu-22.04-rocm-6.2.4-amd64.qcow2
 
 ---
 
