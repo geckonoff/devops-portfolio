@@ -18,44 +18,33 @@
 
 ---
 
-## 💡 Why My IaC Is Different
+## 🔧 Highlighted Projects
 
-Most IaC repos show *ideal* flows. Mine shows **how to survive reality**:
+### [`devops-reference-architecture`](https://github.com/your-username/devops-reference-architecture)
+A modular, cloud-agnostic reference architecture for production-grade infrastructure:
+- **Declarative provisioning** with Terraform (Hetzner Cloud, local, others via providers)
+- **Idempotent provisioning** via Ansible roles (Rocky Linux, Debian)
+- Unified observability stack: Prometheus + Grafana + Loki/Fluentd
+- Secure access: SSH key-only, sudo without password (configurable), systemd hardening
+- Designed for auditability, reproducibility, and fast iteration
 
-| Problem | My Automation Fix |
-|--------|-------------------|
-| ❌ “Postfix works locally, fails in prod” | ✅ `tools/postfix-diag.sh` — checks DNS, TLS, SASL, queue in one command |
-| ❌ “LDAP bind fails — is it network, cert, or ACL?” | ✅ `tools/ldap-check-bind.py` — tests connectivity, TLS, DN, filter step-by-step |
-| ❌ “Yggdrasil node silent — up or down?” | ✅ `tools/yggdrasp-status.sh` — parses `yggdrasilctl` output, alerts on peer loss |
-| ❌ “Spam score changed — what rule triggered?” | ✅ `tools/rspamd-analyze.py` — maps score to symbols, suggests tuning |
-
-→ All wrapped in **idempotent Ansible roles** and **Terraform modules** — no manual fixes.
-
----
-
-## 📦 Core Automation Toolkit
-
-| Layer | Tools |
-|------|-------|
-| **Provisioning** | `terraform/hcloud-mailserver/` — full mail node in 8 min (Rocky 9, firewalld, SELinux baseline) |
-| **Configuration** | `ansible/roles/` — Postfix, Dovecot, LDAP, Rspamd, PKI — all with `--check` support |
-| **Glue & Diagnostics** | `tools/` — 15+ Bash/Python scripts for:  
-- `mail-test.sh`: end-to-end delivery test (submit → IMAP fetch)  
-- `pki-revoke-check.sh`: “Is this cert still valid in our CA?”  
-- `llm-log-summarize.py`: “Show me top 3 error patterns in /var/log/mail.log last hour” |
-| **LLM-Augmented Ops** | `llm-ops/` — prompts + RAG over runbooks: *“How do I fix ‘SASL authentication failed’ for virtual users?”* → gets answer from your own docs |
+### [`packer-macos-qemu`](https://github.com/your-username/packer-macos-qemu)
+Fully automated macOS image builder for x86_64 (and experimental Apple Silicon support):
+- Packer-driven macOS VM image generation using QEMU/KVM
+- Supports Ventura, Sonoma (with OpenCore, SIP handling, GPU passthrough notes)
+- Integrated with Ansible for post-build configuration
+- Enables local macOS CI/CD, testing, and ephemeral build environments on Linux hosts
 
 ---
 
-## 🚀 Sample Workflow: Fix “Yahoo → Spam” in <10 min
+## 🔐 Principles
 
-```bash
-# 1. Diagnose
-./tools/rspamd-analyze.py < /var/log/rspamd/rspamd.log | grep -A3 YAHOO
+- **No hardcoded secrets** — all inputs via variables, env, or Vault
+- **Idempotency first** — infrastructure converges reliably
+- **Minimal surface** — only essential services enabled
+- **Documentation-as-code** — READMEs per module, architecture decisions recorded
 
-# 2. Simulate fix
-ansible-playbook fix-yahoo-spam.yml --check --diff
+---
 
-# 3. Apply & verify
-ansible-playbook fix-yahoo-spam.yml
-./tools/mail-test.sh --to user@yahoo.com --subject "Test: not spam"
+📬 Contact: `ag.shibanov@gmail.com`  
+📍 Based in Germany | Open to remote contracts & collaborations
