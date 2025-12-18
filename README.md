@@ -19,7 +19,7 @@
 
 ## 🚀 Projects That Ship
 
-### [`devops-reference-architecture`](https://github.com/your-username/devops-reference-architecture)  
+### [`devops-reference-architecture`](https://github.com/geckonoff/devops-reference-architecture)  
 *“The IaC base layer you wish you had at your last job.”*
 
 ✅ Terraform-first, multi-cloud (Hetzner, local, AWS stubs)  
@@ -32,7 +32,7 @@
 
 ---
 
-### [`packer-macos-qemu`](https://github.com/your-username/packer-macos-qemu)  
+### [`packer-macos-qemu`](https://github.com/geckonoff/packer-macos-qemu)  
 *“Yes, you can build ROCm-ready Linux VMs… on a 2011 iMac.”*
 
 🔥 **macOS-first Packer** — uses native HVF (no VirtualBox/UTM hacks)  
